@@ -9,7 +9,11 @@
         <tbody>
             {% for post in post_list %}
                 <tr>
-                    <td>{{ post.title }}</td>
+                    <td>
+                        <a href="{% url "blog:post_detail" post.pk %}">
+                            {{ post.title }}
+                        </a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>

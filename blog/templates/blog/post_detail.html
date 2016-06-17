@@ -8,5 +8,10 @@
     <h1>{{ post.title }}</h1>
     <img src="{{ post.photo.url }}" style="max-width: 100%;" />
     {{ post.content|linebreaks }}
+
+    <hr/>
+    <a href="{% url "blog:post_list" %}">
+        글목록
+    </a>
 </body>
 </html>
