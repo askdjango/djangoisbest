@@ -5,6 +5,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     photo = models.ImageField()
+    latlng = models.CharField(max_length=50, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
