@@ -1,0 +1,25 @@
+<div id="map" style="width: 400px; height: 400px;"></div>
+
+<script>
+function initMap() {
+    var position = { lat: {{ base_lat }}, lng: {{ base_lng }} };
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 7,
+        center: position 
+    });
+
+    map.addListener('click', function(e) {
+        marker.setPosition(e.latLng);
+        var latlng = e.latLng.lat() + "," + e.latLng.lng();
+        document.getElementById("{{ id }}").value = latlng;
+    });
+
+    var marker = new google.maps.Marker({
+        position: position,
+        map: map
+    });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+
