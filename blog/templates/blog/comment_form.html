@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+    <meta charst="utf-8" />
+    <title>Django is Best !!!</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" />
+    </form>
+</body>
+</html>

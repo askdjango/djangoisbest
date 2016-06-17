@@ -9,6 +9,16 @@
     <img src="{{ post.photo.url }}" style="max-width: 100%;" />
     {{ post.content|linebreaks }}
 
+    <a href="{% url "blog:comment_new" post.pk %}">댓글쓰기</a>
+    <ul>
+    {% for comment in post.comment_set.all %}
+        <li>
+            {{ comment.message }}, {{ comment.author }}
+            by {{ comment.created_at }}
+        </li>
+    {% endfor %}
+    </ul>
+
     <hr/>
     <a href="{% url "blog:post_list" %}">
         글목록
