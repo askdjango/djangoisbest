@@ -3,9 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <title>{{ post.title }} :: Django is Best !!!</title>
+
 </head>
 <body>
     <h1>{{ post.title }}</h1>
+
+    <div id="map" style="width: 600px; height: 300px;"></div>
+
     <img src="{{ post.photo.url }}" style="max-width: 100%;" />
     {{ post.content|linebreaks }}
 
@@ -23,5 +27,24 @@
     <a href="{% url "blog:post_list" %}">
         글목록
     </a>
+
+<script>
+function initMap() {
+  var myLatLng = {lat: {{ post.lat }}, lng: {{ post.lng }} };
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 9,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+
 </body>
 </html>
